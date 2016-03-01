@@ -16,8 +16,5 @@ new_version_minor:
 new_version_patch:
 	bumpversion patch
 
-testrelease:
-	python setup.py sdist bdist bdist_wheel upload -r test
-
 release:
 	python setup.py sdist bdist bdist_wheel upload
