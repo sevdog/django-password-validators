@@ -35,3 +35,5 @@ ghostdriver.log
 ## generic files to ignore
 *~
 *.lock
+
+*.sqlite3

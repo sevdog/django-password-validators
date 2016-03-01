@@ -1,0 +1,2 @@
+include *.rst LICENSE.txt
+recursive-include django_password_validators/locale *

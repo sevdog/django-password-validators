@@ -1,0 +1,57 @@
+===========================
+Django Password Validations
+===========================
+
+Additional libraries for validating passwords in Django 1.9 or later.
+
+django-password-validators requires Django 1.9 or greater.
+
+The application works well under python 3.x and 2.x versions.
+
+Django version after the number 1.9, allows you to configure password validation. 
+Configuration validation is placed under the variable AUTH_PASSWORD_VALIDATORS_.
+
+
+Installation
+============
+
+Just install ``django-password-validators`` via ``pip``::
+
+    $ pip install django-password-validators
+    
+    
+Validators
+==========
+
+------------------------
+UniquePasswordsValidator
+------------------------
+Validator checks if the password was once used by a particular user. 
+If the password is used, then an exception is thrown, of course.
+
+For each user, all the passwords are stored in a database.
+All passwords are strongly encrypted.
+
+Configuration...
+
+In the file settings.py we add ::
+
+    INSTALLED_APPS = [
+    ...
+    'django_password_validators',
+    'django_password_validators.password_history',
+    ...
+    ]
+
+   AUTH_PASSWORD_VALIDATORS = [
+   ...
+       {
+           'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+       },
+   ...
+   ]
+
+   # If you want, you can change the default hasher for the password history.
+   # DPV_DEFAULT_HISTORY_HASHER = 'django_password_validators.password_history.hashers.HistoryHasher'
+
+.. _AUTH_PASSWORD_VALIDATORS: https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-AUTH_PASSWORD_VALIDATORS
