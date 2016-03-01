@@ -1,6 +1,6 @@
-===========================
-Django Password Validations
-===========================
+==========================
+Django Password Validators
+==========================
 
 Additional libraries for validating passwords in Django 1.9 or later.
 
