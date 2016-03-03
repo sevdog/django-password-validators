@@ -1,4 +1,4 @@
-.PHONY: test translatte
+.PHONY: test translatte new_version_major new_version_minor new_version_patch release
 
 test:
 	tox
@@ -18,3 +18,5 @@ new_version_patch:
 
 release:
 	python setup.py sdist bdist bdist_wheel upload
+	git push --tags
+
