@@ -2,7 +2,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils.crypto import get_random_string
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from django_password_validators.settings import get_password_hasher
 
