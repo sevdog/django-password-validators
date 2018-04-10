@@ -53,4 +53,4 @@ msgstr "No puedes usar una contraseña que ya se encuentra en la aplicación."
 #: password_history/password_validation.py:68
 msgid ""
 "Your new password can not be identical to any of the previously entered."
-msgstr "La nueva contraseña no puede ser usada, debido a que ya las has usado antes."
+msgstr "La nueva contraseña no puede ser identica, a alguna antes utilizada."
