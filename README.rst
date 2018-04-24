@@ -2,13 +2,13 @@
 Django Password Validators
 ==========================
 
-Additional libraries for validating passwords in Django 1.9 or later.
+Additional libraries for validating passwords in Django 1.11 or later.
 
-django-password-validators requires Django 1.9 or greater.
+django-password-validators requires Django 1.11 or greater.
 
 The application works well under python 3.x and 2.x versions.
 
-Django version after the number 1.9, allows you to configure password validation. 
+Django version after the number 1.9, allows you to configure password validation.
 Configuration validation is placed under the variable AUTH_PASSWORD_VALIDATORS_.
 
 

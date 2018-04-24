@@ -10,6 +10,7 @@ from django_password_validators.settings import get_password_hasher
 class UserPasswordHistoryConfig(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
         editable=False
     )
     date = models.DateTimeField(
@@ -67,11 +68,12 @@ class UserPasswordHistoryConfig(models.Model):
 class PasswordHistory(models.Model):
     user_config = models.ForeignKey(
         UserPasswordHistoryConfig,
+        on_delete=models.CASCADE,
         editable=False
     )
     password = models.CharField(
         _('Password hash'),
-        max_length=256,
+        max_length=255,
         editable=False
     )
     date = models.DateTimeField(
