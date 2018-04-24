@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-10 17:18-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Andres Vargas <zodman@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: password_history/models.py:16
+msgid "When created salt"
+msgstr ""
+
+#: password_history/models.py:21
+msgid "Salt for the user"
+msgstr "Salt por el usuario"
+
+#: password_history/models.py:26
+msgid "The number of of iterations for Hasher"
+msgstr "El número de iteraciones for el Hasher"
+
+#: password_history/models.py:34
+msgid "Configuration"
+msgstr "Configuración"
+
+#: password_history/models.py:35
+msgid "Configurations"
+msgstr "Configuraciones"
+
+#: password_history/models.py:73
+msgid "Password hash"
+msgstr "Hash de contraseña"
+
+#: password_history/models.py:78
+msgid "Date"
+msgstr "Fecha"
+
+#: password_history/password_validation.py:32
+msgid "You can not use a password that is already used in this application."
+msgstr "No puedes usar una contraseña que ya se encuentra en la aplicación."
+
+#: password_history/password_validation.py:68
+msgid ""
+"Your new password can not be identical to any of the previously entered."
+msgstr "La nueva contraseña no puede ser identica, a alguna antes utilizada."
