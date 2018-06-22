@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-22 06:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+#: django_password_validators/password_history/models.py:17
+msgid "When created salt"
+msgstr "创建 salt 的时间"
+
+#: django_password_validators/password_history/models.py:22
+msgid "Salt for the user"
+msgstr "用户的 salt"
+
+#: django_password_validators/password_history/models.py:27
+msgid "The number of of iterations for Hasher"
+msgstr "密码哈希的迭代次数"
+
+#: django_password_validators/password_history/models.py:35
+msgid "Configuration"
+msgstr "配置"
+
+#: django_password_validators/password_history/models.py:36
+msgid "Configurations"
+msgstr "配置"
+
+#: django_password_validators/password_history/models.py:75
+msgid "Password hash"
+msgstr "密码哈希"
+
+#: django_password_validators/password_history/models.py:80
+msgid "Date"
+msgstr "日期"
+
+#: django_password_validators/password_history/password_validation.py:32
+msgid "You can not use a password that is already used in this application."
+msgstr "您不能重复使用这个密码"
+
+#: django_password_validators/password_history/password_validation.py:68
+msgid ""
+"Your new password can not be identical to any of the previously entered."
+msgstr "您的新密码应该和以前使用过的密码不同"
