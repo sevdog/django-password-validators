@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             name='PasswordHistory',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('password', models.CharField(editable=False, max_length=256, verbose_name='Password hash')),
+                ('password', models.CharField(editable=False, max_length=255, verbose_name='Password hash')),
                 ('date', models.DateTimeField(auto_now_add=True, verbose_name='Date')),
             ],
             options={
