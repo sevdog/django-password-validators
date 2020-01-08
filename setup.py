@@ -40,7 +40,7 @@ DESCRIPTION = open(
 setup(
     name='django-password-validators',
     version=VERSION,
-    description="Additional libraries for validating passwords in Django 1.9 or later.",
+    description="Additional libraries for validating passwords in Django 1.11 or later.",
     long_description=DESCRIPTION,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -64,7 +64,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'django >= 1.9',
+        'django >= 1.11',
     ],
     tests_require=TESTS_REQUIRE,
     extras_require={

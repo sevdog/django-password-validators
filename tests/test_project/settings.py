@@ -1,6 +1,6 @@
 import os
 
-__dir__ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 SECRET_KEY = '!p!7q_yipf=rivrb#9m-yc&%lnlq9*qvnt72+(#(@qsscbi3@6'
@@ -32,6 +32,8 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE = MIDDLEWARE_CLASSES
+
 ROOT_URLCONF = 'test_project.urls'
 
 TEMPLATES = [
@@ -55,7 +57,7 @@ WSGI_APPLICATION = 'test_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(__dir__, 'db.sqlite3'),
+        'NAME': os.path.join(current_dir, 'db.sqlite3'),
     }
 }
 
