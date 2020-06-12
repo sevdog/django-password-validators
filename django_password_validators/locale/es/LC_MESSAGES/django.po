@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:18-0500\n"
+"POT-Creation-Date: 2020-01-08 17:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andres Vargas <zodman@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: password_history/models.py:16
+#: password_history/models.py:17
 msgid "When created salt"
 msgstr ""
 
-#: password_history/models.py:21
+#: password_history/models.py:22
 msgid "Salt for the user"
 msgstr "Salt por el usuario"
 
-#: password_history/models.py:26
+#: password_history/models.py:27
 msgid "The number of of iterations for Hasher"
 msgstr "El número de iteraciones for el Hasher"
 
-#: password_history/models.py:34
+#: password_history/models.py:35
 msgid "Configuration"
 msgstr "Configuración"
 
-#: password_history/models.py:35
+#: password_history/models.py:36
 msgid "Configurations"
 msgstr "Configuraciones"
 
-#: password_history/models.py:73
+#: password_history/models.py:75
 msgid "Password hash"
 msgstr "Hash de contraseña"
 
-#: password_history/models.py:78
+#: password_history/models.py:80
 msgid "Date"
 msgstr "Fecha"
 
