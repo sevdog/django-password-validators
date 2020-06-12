@@ -54,4 +54,35 @@ In the file settings.py we add ::
    # If you want, you can change the default hasher for the password history.
    # DPV_DEFAULT_HISTORY_HASHER = 'django_password_validators.password_history.hashers.HistoryHasher'
 
+--------------------------
+PasswordCharacterValidator
+--------------------------
+
+The validator checks for the minimum number of characters of a given type.
+
+In the file settings.py we add ::
+
+    INSTALLED_APPS = [
+        ...
+        'django_password_validators',
+        ...
+    ]
+
+   AUTH_PASSWORD_VALIDATORS = [
+       ...
+       {
+           'NAME': 'django_password_validators.password_character_requirements.password_validation.PasswordCharacterValidator',
+           'OPTIONS': {
+                'min_length_digit': 1,
+                'min_length_alpha'; 2,
+                'min_length_special': 3,
+                'min_length_lower': 4,
+                'min_length_upper': 5,
+                'special_characters': "[~!@#$%^&*()_+{}\":;'[]"
+            }
+       },
+       ...
+   ]
+
+
 .. _AUTH_PASSWORD_VALIDATORS: https://docs.djangoproject.com/en/1.9/ref/settings/#std:setting-AUTH_PASSWORD_VALIDATORS
