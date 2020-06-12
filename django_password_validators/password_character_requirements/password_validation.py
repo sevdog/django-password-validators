@@ -56,9 +56,16 @@ class PasswordCharacterValidator():
             raise ValidationError(validation_errors)
 
     def get_help_text(self):
-        return (
-            f"Password must contaion at least "
-            f"{self.min_length_digit} digits, "
-            f"{self.min_length_alpha} letters and "
-            f"{self.min_length_special} special characters"
-        )
+        validation_req = []
+        if self.min_length_alpha:
+            validation_req.append(_("%s letters") % str(self.min_length_alpha))
+        if self.min_length_digit:
+            validation_req.append(_("%s digits") % str(self.min_length_digit))
+        if self.min_length_lower:
+            validation_req.append(_("%s lower case letters") % str(self.min_length_lower))
+        if self.min_length_upper:
+            validation_req.append(_("%s upper case letters") % str(self.min_length_upper))
+        if self.special_characters:
+            validation_req.append(
+                _("%s special characters such as %s") % (str(self.min_length_alpha), self.special_characters))
+        return _("Password must contaion at least") + ' ' + ', '.join(validation_req) + '.'
