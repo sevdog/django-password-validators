@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+import warnings
 
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext as _
@@ -16,9 +17,30 @@ class UniquePasswordsValidator(object):
     The password is only checked for an existing user.
     """
 
+    def _user_ok(self, user):
+        if not user:
+            return
+
+        user_pk = getattr(user, 'pk', None)
+        if user_pk is None:
+            warnings.warn(
+                'An unsaved user model!s %r'
+                % user
+            )
+            return
+
+        if isinstance(user_pk, property):
+            warnings.warn(
+                'Not initialized user model! %r'
+                % user
+            )
+            return
+
+        return True
+
     def validate(self, password, user=None):
 
-        if not user:
+        if not self._user_ok(user):
             return
 
         for user_config in UserPasswordHistoryConfig.objects.filter(user=user):
@@ -37,7 +59,7 @@ class UniquePasswordsValidator(object):
 
     def password_changed(self, password, user=None):
 
-        if not user:
+        if not self._user_ok(user):
             return
 
         user_config = UserPasswordHistoryConfig.objects.filter(

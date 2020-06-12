@@ -3,6 +3,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
+from django_password_validators.password_history.password_validation import UniquePasswordsValidator
 from django_password_validators.password_history.hashers import (
     HistoryVeryStrongHasher,
     HistoryHasher
@@ -68,6 +69,29 @@ class UniquePasswordsValidatorTestCase(TestCase):
         self.assertEqual(PasswordHistory.objects.all().count(), 1)
         self.assertEqual(UserPasswordHistoryConfig.objects.all().count(), 1)
 
+    def test_none_user(self):
+        dummy_user = get_user_model()
+        upv = UniquePasswordsValidator()
+        upv.validate('qwerty', None)
+        upv.password_changed('qwerty', None)
+
+        self.assertEqual(PasswordHistory.objects.all().count(), 0)
+        self.assertEqual(UserPasswordHistoryConfig.objects.all().count(), 0)
+
+    def test_not_saved_user(self):
+        dummy_user = get_user_model()
+        upv = UniquePasswordsValidator()
+        upv.validate('qwerty', dummy_user)
+        upv.password_changed('qwerty', dummy_user)
+
+        dummy_user = get_user_model()()
+        upv = UniquePasswordsValidator()
+        upv.validate('qwerty', dummy_user)
+        upv.password_changed('qwerty', dummy_user)
+
+        self.assertEqual(PasswordHistory.objects.all().count(), 0)
+        self.assertEqual(UserPasswordHistoryConfig.objects.all().count(), 0)
+
     def test_create_multiple_users(self):
         self.create_user(1)
         self.create_user(2)
@@ -89,7 +113,8 @@ class UniquePasswordsValidatorTestCase(TestCase):
     def test_change_number_hasher_iterations(self):
         self.create_user(1)
         self.user_change_password(user_number=1, password_number=2)
-        with self.settings(DPV_DEFAULT_HISTORY_HASHER='django_password_validators.password_history.hashers.HistoryVeryStrongHasher'):
+        with self.settings(
+                DPV_DEFAULT_HISTORY_HASHER='django_password_validators.password_history.hashers.HistoryVeryStrongHasher'):
             self.assert_password_validation_False(
                 user_number=1,
                 password_number=1
