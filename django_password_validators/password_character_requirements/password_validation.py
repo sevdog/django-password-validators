@@ -24,31 +24,31 @@ class PasswordCharacterValidator():
         validation_errors = []
         if len([char for char in password if char.isdigit()]) < self.min_length_digit:
             validation_errors.append(ValidationError(
-                _('Password must contain at least %(min_length)d digit.'),
+                _('This password must contain at least %(min_length)d digit(s).'),
                 params={'min_length': self.min_length_digit},
                 code='min_length_digit',
             ))
         if len([char for char in password if char.isalpha()]) < self.min_length_alpha:
             validation_errors.append(ValidationError(
-                _('Password must contain at least %(min_length)d letter.'),
+                _('This password must contain at least %(min_length)d letter(s).'),
                 params={'min_length': self.min_length_alpha},
                 code='min_length_alpha',
             ))
         if len([char for char in password if char.isupper()]) < self.min_length_upper:
             validation_errors.append(ValidationError(
-                _('Password must contain at least %(min_length)d capital letter.'),
+                _('This password must contain at least %(min_length)d capital letter(s).'),
                 params={'min_length': self.min_length_upper},
                 code='min_length_upper_characters',
             ))
         if len([char for char in password if char.islower()]) < self.min_length_lower:
             validation_errors.append(ValidationError(
-                _('Password must contain at least %(min_length)d small letter.'),
+                _('This password must contain at least %(min_length)d small letter(s).'),
                 params={'min_length': self.min_length_lower},
                 code='min_length_lower_characters',
             ))
         if len([char for char in password if char in self.special_characters]) < self.min_length_special:
             validation_errors.append(ValidationError(
-                _('Password must contain at least %(min_length)d special character.'),
+                _('This password must contain at least %(min_length)d special character(s).'),
                 params={'min_length': self.min_length_special},
                 code='min_length_special_characters',
             ))
@@ -58,14 +58,14 @@ class PasswordCharacterValidator():
     def get_help_text(self):
         validation_req = []
         if self.min_length_alpha:
-            validation_req.append(_("%s letters") % str(self.min_length_alpha))
+            validation_req.append(_("%s letter(s)") % str(self.min_length_alpha))
         if self.min_length_digit:
-            validation_req.append(_("%s digits") % str(self.min_length_digit))
+            validation_req.append(_("%s digit(s)") % str(self.min_length_digit))
         if self.min_length_lower:
-            validation_req.append(_("%s lower case letters") % str(self.min_length_lower))
+            validation_req.append(_("%s lower case letter(s)") % str(self.min_length_lower))
         if self.min_length_upper:
-            validation_req.append(_("%s upper case letters") % str(self.min_length_upper))
+            validation_req.append(_("%s upper case letter(s)") % str(self.min_length_upper))
         if self.special_characters:
             validation_req.append(
-                _("%s special characters such as %s") % (str(self.min_length_alpha), self.special_characters))
-        return _("Password must contaion at least") + ' ' + ', '.join(validation_req) + '.'
+                _("%s special character(s), such as %s") % (str(self.min_length_alpha), self.special_characters))
+        return _("This password must contaion at least") + ' ' + ', '.join(validation_req) + '.'
