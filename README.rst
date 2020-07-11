@@ -74,7 +74,7 @@ In the file settings.py we add ::
            'NAME': 'django_password_validators.password_character_requirements.password_validation.PasswordCharacterValidator',
            'OPTIONS': {
                 'min_length_digit': 1,
-                'min_length_alpha'; 2,
+                'min_length_alpha': 2,
                 'min_length_special': 3,
                 'min_length_lower': 4,
                 'min_length_upper': 5,
