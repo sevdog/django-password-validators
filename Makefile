@@ -17,6 +17,6 @@ new_version_patch:
 	bumpversion patch
 
 release:
-	python setup.py sdist bdist bdist_wheel upload
+	python setup.py sdist bdist_wheel upload
 	git push --tags
 
