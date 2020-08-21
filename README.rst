@@ -46,13 +46,17 @@ In the file settings.py we add ::
    AUTH_PASSWORD_VALIDATORS = [
        ...
        {
-           'NAME': 'django_password_validators.password_history.UniquePasswordsValidator',
+           'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
        },
        ...
    ]
 
    # If you want, you can change the default hasher for the password history.
    # DPV_DEFAULT_HISTORY_HASHER = 'django_password_validators.password_history.hashers.HistoryHasher'
+
+And run ::
+
+    python manage.py migrate
 
 --------------------------
 PasswordCharacterValidator
