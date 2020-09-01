@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 08:36+0200\n"
+"POT-Creation-Date: 2020-09-01 12:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Aurélien WERNER <werner.aurelien@kscloud.eu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,8 +52,10 @@ msgstr[1] "Le mot de passe doit contenir au moins %(min_length)d minuscules."
 msgid "This password must contain at least %(min_length)d special character."
 msgid_plural ""
 "This password must contain at least %(min_length)d special characters."
-msgstr[0] "Le mot de passe doit contenir au moins %(min_length)d caractère spécial."
-msgstr[1] "Le mot de passe doit contenir au moins %(min_length)d caractères spéciaux."
+msgstr[0] ""
+"Le mot de passe doit contenir au moins %(min_length)d caractère spécial."
+msgstr[1] ""
+"Le mot de passe doit contenir au moins %(min_length)d caractères spéciaux."
 
 #: password_character_requirements/password_validation.py:83
 #, python-format
@@ -88,8 +90,10 @@ msgstr[1] "%(min_length)s majuscules"
 msgid "%(min_length_alpha)s special character, such as %(special_characters)s"
 msgid_plural ""
 "%(min_length_alpha)s special characters, such as %(special_characters)s"
-msgstr[0] "%(min_length_alpha)s caractère spécial, comme %(special_characters)s"
-msgstr[1] "%(min_length_alpha)s caractères spéciaux, comme %(special_characters)s"
+msgstr[0] ""
+"%(min_length_alpha)s caractère spécial, comme %(special_characters)s"
+msgstr[1] ""
+"%(min_length_alpha)s caractères spéciaux, comme %(special_characters)s"
 
 #: password_character_requirements/password_validation.py:120
 msgid "This password must contaion at least"
@@ -125,7 +129,8 @@ msgstr "Date"
 
 #: password_history/password_validation.py:54
 msgid "You can not use a password that is already used in this application."
-msgstr "Vous ne pouvez pas utiliser un mot de passe déjà utilisé par l'application."
+msgstr ""
+"Vous ne pouvez pas utiliser un mot de passe déjà utilisé par l'application."
 
 #: password_history/password_validation.py:90
 msgid ""
