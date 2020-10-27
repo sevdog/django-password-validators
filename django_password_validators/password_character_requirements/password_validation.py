@@ -117,4 +117,4 @@ class PasswordCharacterValidator():
                     self.min_length_alpha
                 ) % {'min_length_alpha': str(self.min_length_alpha), 'special_characters': self.special_characters}
             )
-        return _("This password must contaion at least") + ' ' + ', '.join(validation_req) + '.'
+        return _("This password must contain at least") + ' ' + ', '.join(validation_req) + '.'

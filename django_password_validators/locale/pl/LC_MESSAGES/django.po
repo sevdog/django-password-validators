@@ -114,7 +114,7 @@ msgstr[2] ""
 "%(min_length_alpha)s specjalnych znaków, takich jak %(special_characters)s"
 
 #: password_character_requirements/password_validation.py:120
-msgid "This password must contaion at least"
+msgid "This password must contain at least"
 msgstr "To hasło musi zawierać przynajmniej"
 
 #: password_history/models.py:17
@@ -126,7 +126,7 @@ msgid "Salt for the user"
 msgstr "Sól dla użytkownika"
 
 #: password_history/models.py:27
-msgid "The number of of iterations for Hasher"
+msgid "The number of iterations for hasher"
 msgstr "Ilość iteracji dla hasza"
 
 #: password_history/models.py:35

@@ -93,7 +93,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: password_character_requirements/password_validation.py:120
-msgid "This password must contaion at least"
+msgid "This password must contain at least"
 msgstr ""
 
 #: password_history/models.py:17
@@ -105,7 +105,7 @@ msgid "Salt for the user"
 msgstr "Salt por el usuario"
 
 #: password_history/models.py:27
-msgid "The number of of iterations for Hasher"
+msgid "The number of iterations for hasher"
 msgstr "El número de iteraciones for el Hasher"
 
 #: password_history/models.py:35
