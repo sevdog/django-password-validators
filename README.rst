@@ -82,7 +82,7 @@ In the file settings.py we add ::
                 'min_length_special': 3,
                 'min_length_lower': 4,
                 'min_length_upper': 5,
-                'special_characters': "[~!@#$%^&*()_+{}\":;'[]"
+                'special_characters': "~!@#$%^&*()_+{}\":;'[]"
             }
        },
        ...
