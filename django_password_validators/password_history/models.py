@@ -24,7 +24,7 @@ class UserPasswordHistoryConfig(models.Model):
         editable=False,
     )
     iterations = models.IntegerField(
-        _('The number of of iterations for Hasher'),
+        _('The number of iterations for hasher'),
         default=None,
         editable=False,
         blank=True,

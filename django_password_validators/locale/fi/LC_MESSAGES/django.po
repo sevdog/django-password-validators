@@ -91,14 +91,14 @@ msgstr[1] "%(min_length)s isoa kirjainta"
 
 #: password_character_requirements/password_validation.py:115
 #, python-format
-msgid "%(min_length_alpha)s special character, such as %(special_characters)s"
+msgid "%(min_length_special)s special character, such as %(special_characters)s"
 msgid_plural ""
-"%(min_length_alpha)s special characters, such as %(special_characters)s"
+"%(min_length_special)s special characters, such as %(special_characters)s"
 msgstr[0] "%(min_length_alpha)s erikoismerkki, kuten %(special_characters)s"
 msgstr[1] "%(min_length_alpha)s erikoismerkkiä, kuten %(special_characters)s"
 
 #: password_character_requirements/password_validation.py:120
-msgid "This password must contaion at least"
+msgid "This password must contain at least"
 msgstr "Tämän salasanan tulee sisältää ainakin"
 
 #: password_history/models.py:17
@@ -110,7 +110,7 @@ msgid "Salt for the user"
 msgstr "Käyttäjän suola"
 
 #: password_history/models.py:27
-msgid "The number of of iterations for Hasher"
+msgid "The number of iterations for hasher"
 msgstr "Tiivisteen iteraatioiden määrä"
 
 #: password_history/models.py:35
