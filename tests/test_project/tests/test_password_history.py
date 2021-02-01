@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
-from django.test import TestCase
+from django.test import TestCase, override_settings
 
 from django_password_validators.password_history.password_validation import UniquePasswordsValidator
 from django_password_validators.password_history.hashers import (
@@ -100,3 +100,52 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
                     user_config__iterations=HistoryVeryStrongHasher.iterations).count(),
                 1,
             )
+
+    @override_settings(AUTH_PASSWORD_VALIDATORS=[{
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {
+            'last_passwords': 2
+        }
+    }])
+    def test_validation_lookup(self):
+        user1 = self.create_user(1)
+        user2 = self.create_user(2)  # needed to check if we are not deleting passwords from another user
+        user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        user_config_2 = UserPasswordHistoryConfig.objects.filter(user=user2)[0]
+        PasswordHistory.objects.filter(user_config=user_config_1).delete()
+        # This password cannot be taken during validation. It is out of range.
+        # It is the oldest so out of range.
+        self.user_change_password(user_number=1, password_number=2)
+        self.user_change_password(user_number=1, password_number=1)
+        self.user_change_password(user_number=1, password_number=3)
+        # Password out of scope. We interpret it as if it had never been entered.
+        self.assert_password_validation_True(user_number=1, password_number=2)
+        # New unknown password
+        self.assert_password_validation_True(user_number=1, password_number=4)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=1)
+        self.assert_password_validation_False(user_number=1, password_number=3)
+
+        self.assertEqual(PasswordHistory.objects.filter(user_config=user_config_1).count(), 2)
+        self.assertEqual(PasswordHistory.objects.filter(user_config=user_config_2).count(), 1)
+
+        # Two new non-existent passwords
+        self.user_change_password(user_number=1, password_number=4)
+        self.user_change_password(user_number=1, password_number=2)
+
+        # Password out of scope. We interpret it as if it had never been entered.
+        self.assert_password_validation_True(user_number=1, password_number=1)
+        self.assert_password_validation_True(user_number=1, password_number=3)
+
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=4)
+        self.assert_password_validation_False(user_number=1, password_number=2)
+
+        self.assertEqual(PasswordHistory.objects.filter(user_config=user_config_1).count(), 2)
+
+        # We check for interaction with the other user
+        self.assert_password_validation_False(user_number=2, password_number=1)
+        self.assert_password_validation_True(user_number=2, password_number=2)
+        self.assert_password_validation_True(user_number=2, password_number=3)
+        self.assert_password_validation_True(user_number=2, password_number=4)
+        self.assertEqual(PasswordHistory.objects.filter(user_config=user_config_2).count(), 1)
