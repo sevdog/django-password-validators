@@ -5,7 +5,7 @@ test:
   
 translatte:
 	cd ./django_password_validators; django-admin.py makemessages -a
-	cd ./django_password_validators; django-admin.py compilemessages 
+	cd ./django_password_validators; django-admin.py compilemessages -f
 	
 new_version_major:
 	bumpversion major
