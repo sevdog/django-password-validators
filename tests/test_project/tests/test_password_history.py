@@ -1,3 +1,4 @@
+from appdirs import user_config_dir
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
@@ -149,3 +150,128 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
         self.assert_password_validation_True(user_number=2, password_number=3)
         self.assert_password_validation_True(user_number=2, password_number=4)
         self.assertEqual(PasswordHistory.objects.filter(user_config=user_config_2).count(), 1)
+
+    def test_validation_lookup__delete_old_passwords__one_user(self):
+        user1 = self.create_user(1)
+        user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')  # to delete
+        ph1.save()
+        ph2 = PasswordHistory(user_config=user1_uphc1, password='1 user1 hash2')
+        ph2.save()
+        ph3 = PasswordHistory(user_config=user1_uphc1, password='3 user1 hash3')
+        ph3.save()
+        upv = UniquePasswordsValidator(last_passwords=2)
+        upv.delete_old_passwords(user1)
+        current_passwords = list(
+            PasswordHistory.objects.filter(user_config__user=user1).values_list('pk', flat=True).order_by('pk'))
+        self.assertEqual(
+            current_passwords,
+            [ph2.pk, ph3.pk],
+        )
+
+    def test_validation_lookup__delete_old_passwords__two_users(self):
+        user1 = self.create_user(1)
+        user2 = self.create_user(2)
+        PasswordHistory.objects.all().delete()
+
+        user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        user2_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user2)[0]
+
+        ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')  # to delete
+        ph1.save()
+        ph1_u2 = PasswordHistory(user_config=user2_uphc1, password='2 user2 hash1')  # to delete
+        ph1_u2.save()
+        ph2 = PasswordHistory(user_config=user1_uphc1, password='1 user1 hash2')
+        ph2.save()
+        ph2_u2 = PasswordHistory(user_config=user2_uphc1, password='1 user2 hash2')
+        ph2_u2.save()
+        ph3 = PasswordHistory(user_config=user1_uphc1, password='3 user1 hash3')
+        ph3.save()
+        ph3_u2 = PasswordHistory(user_config=user2_uphc1, password='3 user2 hash3')
+        ph3_u2.save()
+
+        upv = UniquePasswordsValidator(last_passwords=2)
+        upv.delete_old_passwords(user1)
+
+        current_passwords = list(
+            PasswordHistory.objects. \
+                filter(user_config__user=user1). \
+                values_list('pk', flat=True). \
+                order_by('pk')
+        )
+        self.assertEqual(
+            current_passwords,
+            [ph2.pk, ph3.pk],
+            msg='Only the passwords of the first user can be deleted'
+        )
+
+        current_passwords = list(
+            PasswordHistory.objects. \
+                filter(user_config__user=user2). \
+                values_list('pk', flat=True). \
+                order_by('pk')
+        )
+        self.assertEqual(
+            current_passwords,
+            [ph1_u2.pk, ph2_u2.pk, ph3_u2.pk],
+            msg='Password history of the other user must be unchanged'
+        )
+
+    def test_validation_lookup__delete_old_passwords__multiple_UserPasswordHistoryConfig(self):
+        user1 = self.create_user(1)
+        PasswordHistory.objects.all().delete()
+
+        user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        user1_uphc2 = UserPasswordHistoryConfig(user=user1, salt='qwerty', iterations=10)
+        user1_uphc2.save()
+
+        ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')  # to delete
+        ph1.save()
+        ph2 = PasswordHistory(user_config=user1_uphc2, password='1 user1 hash2')
+        ph2.save()
+        ph3 = PasswordHistory(user_config=user1_uphc1, password='3 user1 hash3')
+        ph3.save()
+        upv = UniquePasswordsValidator(last_passwords=2)
+        upv.delete_old_passwords(user1)
+        current_passwords = list(
+            PasswordHistory.objects.filter(user_config__user=user1).values_list('pk', flat=True).order_by('pk'))
+        self.assertEqual(
+            current_passwords,
+            [ph2.pk, ph3.pk],
+            msg='Only the oldest password can be deleted = ph1'
+        )
+        PasswordHistory.objects.all().delete()
+
+        ph1 = PasswordHistory(user_config=user1_uphc2, password='2 user1 hash1')  # to delete
+        ph1.save()
+        ph2 = PasswordHistory(user_config=user1_uphc1, password='1 user1 hash2')
+        ph2.save()
+        ph3 = PasswordHistory(user_config=user1_uphc1, password='3 user1 hash3')
+        ph3.save()
+        upv = UniquePasswordsValidator(last_passwords=2)
+        upv.delete_old_passwords(user1)
+        current_passwords = list(
+            PasswordHistory.objects.filter(user_config__user=user1).values_list('pk', flat=True).order_by('pk'))
+        self.assertEqual(
+            current_passwords,
+            [ph2.pk, ph3.pk],
+            msg='Only the oldest password can be deleted = ph1'
+        )
+        PasswordHistory.objects.all().delete()
+
+        ph1 = PasswordHistory(user_config=user1_uphc2, password='2 user1 hash1')  # to delete
+        ph1.save()
+        ph2 = PasswordHistory(user_config=user1_uphc1, password='1 user1 hash2')
+        ph2.save()
+        ph3 = PasswordHistory(user_config=user1_uphc2, password='3 user1 hash3')
+        ph3.save()
+        upv = UniquePasswordsValidator(last_passwords=2)
+        upv.delete_old_passwords(user1)
+        current_passwords = list(
+            PasswordHistory.objects.filter(user_config__user=user1).values_list('pk', flat=True).order_by('pk'))
+        self.assertEqual(
+            current_passwords,
+            [ph2.pk, ph3.pk],
+            msg='Only the oldest password can be deleted = ph1'
+        )
+        PasswordHistory.objects.all().delete()

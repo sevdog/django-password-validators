@@ -47,28 +47,33 @@ class UniquePasswordsValidator(object):
 
         return True
 
-    def get_password_history_objects(self, user_config):
-        "Returns all password objects that are considered for validation."
+    def delete_old_passwords(self, user):
         if self.last_passwords > 0:
+            # Delete old passwords that are outside the lookup_range
             password_ids = list(
-                PasswordHistory.objects.filter(user_config=user_config). \
-                    order_by('-date')[:self.last_passwords].values_list('pk', flat=True)
+                PasswordHistory.objects. \
+                    filter(user_config__user=user). \
+                    order_by('-date')[self.last_passwords:]. \
+                    values_list('pk', flat=True)
             )
-            return PasswordHistory.objects.filter(pk__in=password_ids).order_by('-date')
-        else:
-            return PasswordHistory.objects.filter(user_config=user_config)
+            if password_ids:
+                PasswordHistory.objects.filter(pk__in=password_ids).delete()
 
     def validate(self, password, user=None):
 
         if not self._user_ok(user):
             return
 
+        # We make sure there are no old passwords in the database.
+        self.delete_old_passwords(user)
+
         for user_config in UserPasswordHistoryConfig.objects.filter(user=user):
             password_hash = user_config.make_password_hash(password)
             try:
-
-                self.get_password_history_objects(user_config).get(password=password_hash)
-
+                PasswordHistory.objects.get(
+                    user_config=user_config,
+                    password=password_hash
+                )
                 raise ValidationError(
                     _("You can not use a password that is already used in this application."),
                     code='password_used'
@@ -105,10 +110,8 @@ class UniquePasswordsValidator(object):
             ols_password.password = password_hash
             ols_password.save()
 
-        if self.last_passwords > 0:
-            # Delete old passwords that are outside the lookup_range
-            password_ids = list(self.get_password_history_objects(user_config).values_list('pk', flat=True))
-            PasswordHistory.objects.filter(user_config=user_config).exclude(pk__in=list(password_ids)).delete()
+        # We make sure there are no old passwords in the database.
+        self.delete_old_passwords(user)
 
     def get_help_text(self):
         if self.last_passwords > 0:
