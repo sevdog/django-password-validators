@@ -48,8 +48,9 @@ In the file settings.py we add ::
        {
            'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
            'OPTIONS': {
-                # How many recently entered passwords matter
-                # Default: 0 - All passwords entered by the user
+                # How many recently entered passwords matter.
+                # Passwords out of range are deleted.
+                # Default: 0 - All passwords entered by the user. All password hashes are stored.
                'last_passwords': 5 # Only the last 5 passwords entered by the user
            }
        },
