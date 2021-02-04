@@ -107,7 +107,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             'last_passwords': 0
         }
     }])
-    def test_validation_lookup__1_pass_history(self):
+    def test_last_password__1_pass_history(self):
         user1 = self.create_user(1)
         user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         PasswordHistory.objects.filter(user_config=user_config_1).delete()
@@ -136,7 +136,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             'last_passwords': 1
         }
     }])
-    def test_validation_lookup__1_pass_history(self):
+    def test_last_password__1_pass_history(self):
         user1 = self.create_user(1)
         user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         PasswordHistory.objects.filter(user_config=user_config_1).delete()
@@ -165,7 +165,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             'last_passwords': 2
         }
     }])
-    def test_validation_lookup__1_pass_history(self):
+    def test_last_password__1_pass_history(self):
         user1 = self.create_user(1)
         user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         PasswordHistory.objects.filter(user_config=user_config_1).delete()
@@ -194,7 +194,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             'last_passwords': 3
         }
     }])
-    def test_validation_lookup__1_pass_history(self):
+    def test_last_password__1_pass_history(self):
         user1 = self.create_user(1)
         user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         PasswordHistory.objects.filter(user_config=user_config_1).delete()
@@ -223,7 +223,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             'last_passwords': 4
         }
     }])
-    def test_validation_lookup__1_pass_history(self):
+    def test_last_password__1_pass_history(self):
         user1 = self.create_user(1)
         user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         PasswordHistory.objects.filter(user_config=user_config_1).delete()
@@ -252,7 +252,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             'last_passwords': 2
         }
     }])
-    def test_validation_lookup(self):
+    def test_last_password(self):
         user1 = self.create_user(1)
         user2 = self.create_user(2)  # needed to check if we are not deleting passwords from another user
         user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
@@ -295,7 +295,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
         self.assert_password_validation_True(user_number=2, password_number=4)
         self.assertEqual(PasswordHistory.objects.filter(user_config=user_config_2).count(), 1)
 
-    def test_validation_lookup__delete_old_passwords__one_user__infinite_passwords_hist(self):
+    def test_last_password__delete_old_passwords__one_user__infinite_passwords_hist(self):
         user1 = self.create_user(1)
         PasswordHistory.objects.filter(user_config__user=user1).delete()
         user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
@@ -316,7 +316,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             [ph1.pk, ph2.pk, ph3.pk],
         )
 
-    def test_validation_lookup__delete_old_passwords__one_user__one_password_hist(self):
+    def test_last_password__delete_old_passwords__one_user__one_password_hist(self):
         user1 = self.create_user(1)
         user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')  # to delete
@@ -334,7 +334,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             [ph3.pk],
         )
 
-    def test_validation_lookup__delete_old_passwords__one_user__two_passwords_hist(self):
+    def test_last_password__delete_old_passwords__one_user__two_passwords_hist(self):
         user1 = self.create_user(1)
         user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')  # to delete
@@ -352,7 +352,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             [ph2.pk, ph3.pk],
         )
 
-    def test_validation_lookup__delete_old_passwords__one_user__three_passwords_hist(self):
+    def test_last_password__delete_old_passwords__one_user__three_passwords_hist(self):
         user1 = self.create_user(1)
         user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')
@@ -370,7 +370,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             [ph1.pk, ph2.pk, ph3.pk],
         )
 
-    def test_validation_lookup__delete_old_passwords__two_users(self):
+    def test_last_password__delete_old_passwords__two_users(self):
         user1 = self.create_user(1)
         user2 = self.create_user(2)
         PasswordHistory.objects.all().delete()
@@ -418,7 +418,7 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
             msg='Password history of the other user must be unchanged'
         )
 
-    def test_validation_lookup__delete_old_passwords__multiple_UserPasswordHistoryConfig(self):
+    def test_last_password__delete_old_passwords__multiple_UserPasswordHistoryConfig(self):
         user1 = self.create_user(1)
         PasswordHistory.objects.all().delete()
 
