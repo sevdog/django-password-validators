@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-01 17:28+0100\n"
+"POT-Creation-Date: 2021-02-04 15:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Andres Vargas <zodman@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,11 +125,11 @@ msgstr "Hash de contraseña"
 msgid "Date"
 msgstr "Fecha"
 
-#: password_history/password_validation.py:73
+#: password_history/password_validation.py:78
 msgid "You can not use a password that is already used in this application."
 msgstr "No puedes usar una contraseña que ya se encuentra en la aplicación."
 
-#: password_history/password_validation.py:116
+#: password_history/password_validation.py:119
 #, fuzzy, python-format
 #| msgid ""
 #| "Your new password can not be identical to any of the previously entered."
@@ -145,7 +145,7 @@ msgstr[1] ""
 "Su nueva contraseña no puede ser idéntica a ninguna de las %(old_pass)d "
 "contraseñas ingresadas anteriormente."
 
-#: password_history/password_validation.py:122
+#: password_history/password_validation.py:125
 msgid ""
 "Your new password can not be identical to any of the previously entered."
 msgstr "La nueva contraseña no puede ser identica, a alguna antes utilizada."

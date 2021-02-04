@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-01 17:28+0100\n"
+"POT-Creation-Date: 2021-02-04 15:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ville Skyttä <ville.skytta@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,11 +130,11 @@ msgstr "Salasanan tiiviste"
 msgid "Date"
 msgstr "Päiväys"
 
-#: password_history/password_validation.py:73
+#: password_history/password_validation.py:78
 msgid "You can not use a password that is already used in this application."
 msgstr "Et voi käyttää aiemmin käyttämääsi salasanaa tässä sovelluksessa."
 
-#: password_history/password_validation.py:116
+#: password_history/password_validation.py:119
 #, fuzzy, python-format
 #| msgid ""
 #| "Your new password can not be identical to any of the previously entered."
@@ -149,7 +149,7 @@ msgstr[1] ""
 "Uusi salasanasi ei voi olla identtinen minkään %(old_pass)d aiemmin syötetyn "
 "salasanan kanssa."
 
-#: password_history/password_validation.py:122
+#: password_history/password_validation.py:125
 msgid ""
 "Your new password can not be identical to any of the previously entered."
 msgstr "Uusi salasanasi ei voi olla sama kuin mikään aiemmin käyttämäsi."
