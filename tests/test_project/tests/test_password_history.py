@@ -1,4 +1,3 @@
-from appdirs import user_config_dir
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
@@ -105,6 +104,151 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
     @override_settings(AUTH_PASSWORD_VALIDATORS=[{
         'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
         'OPTIONS': {
+            'last_passwords': 0
+        }
+    }])
+    def test_validation_lookup__1_pass_history(self):
+        user1 = self.create_user(1)
+        user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        PasswordHistory.objects.filter(user_config=user_config_1).delete()
+
+        # This password cannot be taken during validation. It is out of range.
+        # It is the oldest so out of range.
+        self.user_change_password(user_number=1, password_number=2)
+        self.user_change_password(user_number=1, password_number=1)
+        self.user_change_password(user_number=1, password_number=3)
+
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=2)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=1)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=3)
+
+        # New unknown password
+        self.assert_password_validation_True(user_number=1, password_number=4)
+
+        self.assertEqual(PasswordHistory.objects.filter(user_config__user=user1).count(), 3)
+
+    @override_settings(AUTH_PASSWORD_VALIDATORS=[{
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {
+            'last_passwords': 1
+        }
+    }])
+    def test_validation_lookup__1_pass_history(self):
+        user1 = self.create_user(1)
+        user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        PasswordHistory.objects.filter(user_config=user_config_1).delete()
+
+        # This password cannot be taken during validation. It is out of range.
+        # It is the oldest so out of range.
+        self.user_change_password(user_number=1, password_number=2)
+        self.user_change_password(user_number=1, password_number=1)
+        self.user_change_password(user_number=1, password_number=3)
+
+        # Password out of scope. We interpret it as if it had never been entered.
+        self.assert_password_validation_True(user_number=1, password_number=2)
+        # Password out of scope. We interpret it as if it had never been entered.
+        self.assert_password_validation_True(user_number=1, password_number=1)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=3)
+
+        # New unknown password
+        self.assert_password_validation_True(user_number=1, password_number=4)
+
+        self.assertEqual(PasswordHistory.objects.filter(user_config__user=user1).count(), 1)
+
+    @override_settings(AUTH_PASSWORD_VALIDATORS=[{
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {
+            'last_passwords': 2
+        }
+    }])
+    def test_validation_lookup__1_pass_history(self):
+        user1 = self.create_user(1)
+        user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        PasswordHistory.objects.filter(user_config=user_config_1).delete()
+
+        # This password cannot be taken during validation. It is out of range.
+        # It is the oldest so out of range.
+        self.user_change_password(user_number=1, password_number=2)
+        self.user_change_password(user_number=1, password_number=1)
+        self.user_change_password(user_number=1, password_number=3)
+
+        # Password out of scope. We interpret it as if it had never been entered.
+        self.assert_password_validation_True(user_number=1, password_number=2)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=1)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=3)
+
+        # New unknown password
+        self.assert_password_validation_True(user_number=1, password_number=4)
+
+        self.assertEqual(PasswordHistory.objects.filter(user_config__user=user1).count(), 2)
+
+    @override_settings(AUTH_PASSWORD_VALIDATORS=[{
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {
+            'last_passwords': 3
+        }
+    }])
+    def test_validation_lookup__1_pass_history(self):
+        user1 = self.create_user(1)
+        user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        PasswordHistory.objects.filter(user_config=user_config_1).delete()
+
+        # This password cannot be taken during validation. It is out of range.
+        # It is the oldest so out of range.
+        self.user_change_password(user_number=1, password_number=2)
+        self.user_change_password(user_number=1, password_number=1)
+        self.user_change_password(user_number=1, password_number=3)
+
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=2)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=1)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=3)
+
+        # New unknown password
+        self.assert_password_validation_True(user_number=1, password_number=4)
+
+        self.assertEqual(PasswordHistory.objects.filter(user_config__user=user1).count(), 3)
+
+    @override_settings(AUTH_PASSWORD_VALIDATORS=[{
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {
+            'last_passwords': 4
+        }
+    }])
+    def test_validation_lookup__1_pass_history(self):
+        user1 = self.create_user(1)
+        user_config_1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        PasswordHistory.objects.filter(user_config=user_config_1).delete()
+
+        # This password cannot be taken during validation. It is out of range.
+        # It is the oldest so out of range.
+        self.user_change_password(user_number=1, password_number=2)
+        self.user_change_password(user_number=1, password_number=1)
+        self.user_change_password(user_number=1, password_number=3)
+
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=2)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=1)
+        # Passwords known in the scope we are checking
+        self.assert_password_validation_False(user_number=1, password_number=3)
+
+        # New unknown password
+        self.assert_password_validation_True(user_number=1, password_number=4)
+
+        self.assertEqual(PasswordHistory.objects.filter(user_config__user=user1).count(), 3)
+
+    @override_settings(AUTH_PASSWORD_VALIDATORS=[{
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {
             'last_passwords': 2
         }
     }])
@@ -151,7 +295,46 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
         self.assert_password_validation_True(user_number=2, password_number=4)
         self.assertEqual(PasswordHistory.objects.filter(user_config=user_config_2).count(), 1)
 
-    def test_validation_lookup__delete_old_passwords__one_user(self):
+    def test_validation_lookup__delete_old_passwords__one_user__infinite_passwords_hist(self):
+        user1 = self.create_user(1)
+        PasswordHistory.objects.filter(user_config__user=user1).delete()
+        user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')  # to delete
+        ph1.save()
+        ph2 = PasswordHistory(user_config=user1_uphc1, password='1 user1 hash2')  # to delete
+        ph2.save()
+        ph3 = PasswordHistory(user_config=user1_uphc1, password='3 user1 hash3')
+        ph3.save()
+        upv = UniquePasswordsValidator(last_passwords=0)
+        upv.delete_old_passwords(user1)
+        upv = UniquePasswordsValidator(last_passwords=-1)
+        upv.delete_old_passwords(user1)
+        current_passwords = list(
+            PasswordHistory.objects.filter(user_config__user=user1).values_list('pk', flat=True).order_by('pk'))
+        self.assertEqual(
+            current_passwords,
+            [ph1.pk, ph2.pk, ph3.pk],
+        )
+
+    def test_validation_lookup__delete_old_passwords__one_user__one_password_hist(self):
+        user1 = self.create_user(1)
+        user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')  # to delete
+        ph1.save()
+        ph2 = PasswordHistory(user_config=user1_uphc1, password='1 user1 hash2')  # to delete
+        ph2.save()
+        ph3 = PasswordHistory(user_config=user1_uphc1, password='3 user1 hash3')
+        ph3.save()
+        upv = UniquePasswordsValidator(last_passwords=1)
+        upv.delete_old_passwords(user1)
+        current_passwords = list(
+            PasswordHistory.objects.filter(user_config__user=user1).values_list('pk', flat=True).order_by('pk'))
+        self.assertEqual(
+            current_passwords,
+            [ph3.pk],
+        )
+
+    def test_validation_lookup__delete_old_passwords__one_user__two_passwords_hist(self):
         user1 = self.create_user(1)
         user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
         ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')  # to delete
@@ -167,6 +350,24 @@ class UniquePasswordsValidatorTestCase(PasswordsTestCase):
         self.assertEqual(
             current_passwords,
             [ph2.pk, ph3.pk],
+        )
+
+    def test_validation_lookup__delete_old_passwords__one_user__three_passwords_hist(self):
+        user1 = self.create_user(1)
+        user1_uphc1 = UserPasswordHistoryConfig.objects.filter(user=user1)[0]
+        ph1 = PasswordHistory(user_config=user1_uphc1, password='2 user1 hash1')
+        ph1.save()
+        ph2 = PasswordHistory(user_config=user1_uphc1, password='1 user1 hash2')
+        ph2.save()
+        ph3 = PasswordHistory(user_config=user1_uphc1, password='3 user1 hash3')
+        ph3.save()
+        upv = UniquePasswordsValidator(last_passwords=3)
+        upv.delete_old_passwords(user1)
+        current_passwords = list(
+            PasswordHistory.objects.filter(user_config__user=user1).values_list('pk', flat=True).order_by('pk'))
+        self.assertEqual(
+            current_passwords,
+            [ph1.pk, ph2.pk, ph3.pk],
         )
 
     def test_validation_lookup__delete_old_passwords__two_users(self):
