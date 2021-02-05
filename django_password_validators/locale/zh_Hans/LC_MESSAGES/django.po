@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 10:48+0100\n"
+"POT-Creation-Date: 2021-02-04 15:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,11 +115,23 @@ msgstr "密码哈希"
 msgid "Date"
 msgstr "日期"
 
-#: password_history/password_validation.py:54
+#: password_history/password_validation.py:78
 msgid "You can not use a password that is already used in this application."
 msgstr "您不能重复使用这个密码"
 
-#: password_history/password_validation.py:90
+#: password_history/password_validation.py:119
+#, fuzzy, python-format
+#| msgid ""
+#| "Your new password can not be identical to any of the previously entered."
+msgid ""
+"Your new password can not be identical to any of the %(old_pass)d previously "
+"entered passwords."
+msgid_plural ""
+"Your new password can not be identical to any of the %(old_pass)d previously "
+"entered passwords."
+msgstr[0] "您的新密码不能与之前输入的%(old_pass)d个密码相同。"
+
+#: password_history/password_validation.py:125
 msgid ""
 "Your new password can not be identical to any of the previously entered."
 msgstr "您的新密码应该和以前使用过的密码不同"
