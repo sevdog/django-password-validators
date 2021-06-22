@@ -11,7 +11,7 @@ class PasswordCharacterValidator():
             min_length_special=1,
             min_length_lower=1,
             min_length_upper=1,
-            special_characters="[~!@#$%^&*()_+{}\":;'[]"
+            special_characters="~!@#$%^&*()_+{}\":;'[]"
     ):
         self.min_length_digit = min_length_digit
         self.min_length_alpha = min_length_alpha
@@ -114,7 +114,7 @@ class PasswordCharacterValidator():
                 ungettext(
                     "%(min_length_special)s special character, such as %(special_characters)s",
                     "%(min_length_special)s special characters, such as %(special_characters)s",
-                    self.min_length_alpha
+                    self.min_length_special
                 ) % {'min_length_special': str(self.min_length_special), 'special_characters': self.special_characters}
             )
         return _("This password must contain at least") + ' ' + ', '.join(validation_req) + '.'
