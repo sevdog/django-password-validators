@@ -1,5 +1,8 @@
 from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext as _, ungettext
+try:
+  from django.utils.translation import gettext as _, ungettext
+except ImportError:
+  from django.utils.translation import ugettext as _, ungettext
 
 
 class PasswordCharacterValidator():
