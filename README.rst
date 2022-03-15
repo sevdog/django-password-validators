@@ -2,6 +2,8 @@
 Django Password Validators
 ==========================
 
+**Warning: temporarily the library does not work with Django 3.2 and 4.x.**
+
 Additional libraries for validating passwords in Django 2.2.8 or later.
 
 django-password-validators requires Django 2.2.8 or greater.
