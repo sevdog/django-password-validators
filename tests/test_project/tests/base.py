@@ -13,11 +13,13 @@ class PasswordsTestCase(TestCase):
     PASSWORD_TEMPLATE = 'ABCDEFGHIJKLMNOPRSTUWXYZ_%d'
 
     def create_user(self, number=1):
-        return self.UserModel.objects.create_user(
+        user = self.UserModel.objects.create_user(
             'test%d' % number,
             email='test%d@example.com' % number,
-            password=self.PASSWORD_TEMPLATE % 1
         )
+        user.set_password(self.PASSWORD_TEMPLATE % 1)
+        user.save()
+        return user
 
     def user_change_password(self, user_number, password_number):
         user = self.UserModel.objects.get(username='test%d' % user_number)
