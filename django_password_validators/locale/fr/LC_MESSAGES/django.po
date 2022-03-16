@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-15 16:51+0200\n"
+"POT-Creation-Date: 2022-03-16 10:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Aurélien WERNER <werner.aurelien@kscloud.eu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,21 +17,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: password_character_requirements/password_validation.py:28
+#: password_character_requirements/password_validation.py:31
 #, python-format
 msgid "This password must contain at least %(min_length)d digit."
 msgid_plural "This password must contain at least %(min_length)d digits."
 msgstr[0] "Le mot de passe doit contenir au moins %(min_length)d chiffre."
 msgstr[1] "Le mot de passe doit contenir au moins %(min_length)d chiffres."
 
-#: password_character_requirements/password_validation.py:38
+#: password_character_requirements/password_validation.py:41
 #, python-format
 msgid "This password must contain at least %(min_length)d letter."
 msgid_plural "This password must contain at least %(min_length)d letters."
 msgstr[0] "Le mot de passe doit contenir au moins %(min_length)d lettre."
 msgstr[1] "Le mot de passe doit contenir au moins %(min_length)d lettres."
 
-#: password_character_requirements/password_validation.py:48
+#: password_character_requirements/password_validation.py:51
 #, python-format
 msgid "This password must contain at least %(min_length)d upper case letter."
 msgid_plural ""
@@ -39,7 +39,7 @@ msgid_plural ""
 msgstr[0] "Le mot de passe doit contenir au moins %(min_length)d majuscule."
 msgstr[1] "Le mot de passe doit contenir au moins %(min_length)d majuscules."
 
-#: password_character_requirements/password_validation.py:58
+#: password_character_requirements/password_validation.py:61
 #, python-format
 msgid "This password must contain at least %(min_length)d lower case letter."
 msgid_plural ""
@@ -47,7 +47,7 @@ msgid_plural ""
 msgstr[0] "Le mot de passe doit contenir au moins %(min_length)d minuscule."
 msgstr[1] "Le mot de passe doit contenir au moins %(min_length)d minuscules."
 
-#: password_character_requirements/password_validation.py:68
+#: password_character_requirements/password_validation.py:71
 #, python-format
 msgid "This password must contain at least %(min_length)d special character."
 msgid_plural ""
@@ -57,35 +57,35 @@ msgstr[0] ""
 msgstr[1] ""
 "Le mot de passe doit contenir au moins %(min_length)d caractères spéciaux."
 
-#: password_character_requirements/password_validation.py:83
+#: password_character_requirements/password_validation.py:86
 #, python-format
 msgid "%(min_length)s letter"
 msgid_plural "%(min_length)s letters"
 msgstr[0] "%(min_length)s lettre"
 msgstr[1] "%(min_length)s lettres"
 
-#: password_character_requirements/password_validation.py:91
+#: password_character_requirements/password_validation.py:94
 #, python-format
 msgid "%(min_length)s digit"
 msgid_plural "%(min_length)s digits"
 msgstr[0] "%(min_length)s chiffre"
 msgstr[1] "%(min_length)s chiffres"
 
-#: password_character_requirements/password_validation.py:99
+#: password_character_requirements/password_validation.py:102
 #, python-format
 msgid "%(min_length)s lower case letter"
 msgid_plural "%(min_length)s lower case letters"
 msgstr[0] "%(min_length)s minuscule"
 msgstr[1] "%(min_length)s minuscules"
 
-#: password_character_requirements/password_validation.py:107
+#: password_character_requirements/password_validation.py:110
 #, python-format
 msgid "%(min_length)s upper case letter"
 msgid_plural "%(min_length)s upper case letters"
 msgstr[0] "%(min_length)s majuscule"
 msgstr[1] "%(min_length)s majuscules"
 
-#: password_character_requirements/password_validation.py:115
+#: password_character_requirements/password_validation.py:118
 #, python-format
 msgid ""
 "%(min_length_special)s special character, such as %(special_characters)s"
@@ -96,44 +96,44 @@ msgstr[0] ""
 msgstr[1] ""
 "%(min_length_special)s caractères spéciaux, comme %(special_characters)s"
 
-#: password_character_requirements/password_validation.py:120
+#: password_character_requirements/password_validation.py:123
 msgid "This password must contain at least"
 msgstr "Le mot de passe doit contenir"
 
-#: password_history/models.py:17
+#: password_history/models.py:20
 msgid "When created salt"
 msgstr "Lors de la création du sel"
 
-#: password_history/models.py:22
+#: password_history/models.py:25
 msgid "Salt for the user"
 msgstr "Sel pour l'utilisateur"
 
-#: password_history/models.py:27
+#: password_history/models.py:30
 msgid "The number of iterations for hasher"
 msgstr "Le nombre d'itérations pour le hash"
 
-#: password_history/models.py:35
+#: password_history/models.py:38
 msgid "Configuration"
 msgstr "Configuration"
 
-#: password_history/models.py:36
+#: password_history/models.py:39
 msgid "Configurations"
 msgstr "Configurations"
 
-#: password_history/models.py:75
+#: password_history/models.py:78
 msgid "Password hash"
 msgstr "Hash de mot de passe"
 
-#: password_history/models.py:80
+#: password_history/models.py:83
 msgid "Date"
 msgstr "Date"
 
-#: password_history/password_validation.py:78
+#: password_history/password_validation.py:81
 msgid "You can not use a password that is already used in this application."
 msgstr ""
 "Vous ne pouvez pas utiliser un mot de passe déjà utilisé par l'application."
 
-#: password_history/password_validation.py:119
+#: password_history/password_validation.py:122
 #, fuzzy, python-format
 #| msgid ""
 #| "Your new password can not be identical to any of the previously entered."
@@ -150,7 +150,7 @@ msgstr[1] ""
 "Votre nouveau mot de passe ne peut être identique à aucun des %(old_pass)d "
 "saisis précédemment."
 
-#: password_history/password_validation.py:125
+#: password_history/password_validation.py:128
 msgid ""
 "Your new password can not be identical to any of the previously entered."
 msgstr "Votre nouveau mot de passe ne peut pas être identique au précédent."
