@@ -102,16 +102,10 @@ class UniquePasswordsValidator(object):
         password_hash = user_config.make_password_hash(password)
 
         # We are looking hash password in the database
-        try:
-            PasswordHistory.objects.get(
-                user_config=user_config,
-                password=password_hash
-            )
-        except PasswordHistory.DoesNotExist:
-            ols_password = PasswordHistory()
-            ols_password.user_config = user_config
-            ols_password.password = password_hash
-            ols_password.save()
+        old_password, old_password__created = PasswordHistory.objects.get_or_create(
+            user_config=user_config,
+            password=password_hash
+        )
 
         # We make sure there are no old passwords in the database.
         self.delete_old_passwords(user)
