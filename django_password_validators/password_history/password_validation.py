@@ -2,10 +2,11 @@ from __future__ import unicode_literals
 import warnings
 
 from django.core.exceptions import ValidationError
+
 try:
-  from django.utils.translation import gettext as _, ngettext
+    from django.utils.translation import gettext as _, ngettext
 except ImportError:
-  from django.utils.translation import ugettext as _, ngettext
+    from django.utils.translation import ugettext as _, ngettext
 from django_password_validators.settings import get_password_hasher
 from django_password_validators.password_history.models import (
     PasswordHistory,
