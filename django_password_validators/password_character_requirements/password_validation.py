@@ -112,7 +112,7 @@ class PasswordCharacterValidator():
                     self.min_length_upper
                 ) % {'min_length': self.min_length_upper}
             )
-        if self.special_characters:
+        if self.min_length_special and self.special_characters:
             validation_req.append(
                 ngettext(
                     "%(min_length_special)s special character, such as %(special_characters)s",
