@@ -32,7 +32,7 @@ class Tox(TestCommand):
 
 __dir__ = realpath(dirname(__file__))
 
-TESTS_REQUIRE = ['tox >= 2.3']
+TESTS_REQUIRE = ['tox >= 4.11']
 
 DESCRIPTION = open(
     os.path.join(os.path.dirname(__file__), 'README.rst')).read()
@@ -64,7 +64,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'django >= 2.2.8',
+        'django >= 3.0',
     ],
     tests_require=TESTS_REQUIRE,
     extras_require={
