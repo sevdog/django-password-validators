@@ -94,7 +94,7 @@ msgstr[1] ""
 
 #: password_character_requirements/password_validation.py:123
 msgid "This password must contain at least"
-msgstr ""
+msgstr "Your password must contain at least"
 
 #: password_history/models.py:20
 msgid "When created salt"
@@ -137,8 +137,10 @@ msgid_plural ""
 "Your new password can not be identical to any of the %(old_pass)d previously "
 "entered passwords."
 msgstr[0] ""
-"Your new password cannot be the same as the last password you entered."
+"Your password can't be the same as the last password you used."
 msgstr[1] ""
+"Your password can't be identical to any of the %(old_pass)d previously "
+"used passwords."
 
 #: password_history/password_validation.py:128
 msgid ""
