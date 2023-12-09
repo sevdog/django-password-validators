@@ -2,6 +2,10 @@
 Django Password Validators
 ==========================
 
+.. image:: https://github.com/fizista/django-password-validators/actions/workflows/ci.yml/badge.svg?branch=master
+    :target: https://github.com/fizista/django-password-validators/actions/workflows/ci.yml?query=branch%3Amaster
+    :alt: CI status
+
 Additional libraries for validating passwords in Django 3.2 or later.
 
 The application works well under python 4.x and 3.x versions.
