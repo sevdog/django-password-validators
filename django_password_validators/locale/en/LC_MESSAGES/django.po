@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 10:08+0100\n"
+"POT-Creation-Date: 2023-12-10 18:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,11 +124,13 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: password_history/password_validation.py:81
-msgid "You can not use a password that is already used in this application."
+#: password_history/password_validation.py:82
+msgid ""
+"You can not use a password that was already used in this application in the "
+"past."
 msgstr ""
 
-#: password_history/password_validation.py:122
+#: password_history/password_validation.py:117
 #, python-format
 msgid ""
 "Your new password can not be identical to any of the %(old_pass)d previously "
@@ -136,13 +138,12 @@ msgid ""
 msgid_plural ""
 "Your new password can not be identical to any of the %(old_pass)d previously "
 "entered passwords."
-msgstr[0] ""
-"Your password can't be the same as the last password you used."
+msgstr[0] "Your password can't be the same as the last password you used."
 msgstr[1] ""
-"Your password can't be identical to any of the %(old_pass)d previously "
-"used passwords."
+"Your password can't be identical to any of the %(old_pass)d previously used "
+"passwords."
 
-#: password_history/password_validation.py:128
+#: password_history/password_validation.py:123
 msgid ""
 "Your new password can not be identical to any of the previously entered."
 msgstr ""

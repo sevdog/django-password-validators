@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 10:08+0100\n"
+"POT-Creation-Date: 2023-12-10 18:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,16 +36,20 @@ msgstr[1] "La tua password deve contenere almeno %(min_length)d lettere"
 msgid "This password must contain at least %(min_length)d upper case letter."
 msgid_plural ""
 "This password must contain at least %(min_length)d upper case letters."
-msgstr[0] "La tua password deve contenere almeno %(min_length)d lettera maiuscola"
-msgstr[1] "La tua password deve contenere almeno %(min_length)d lettere maiuscole"
+msgstr[0] ""
+"La tua password deve contenere almeno %(min_length)d lettera maiuscola"
+msgstr[1] ""
+"La tua password deve contenere almeno %(min_length)d lettere maiuscole"
 
 #: password_character_requirements/password_validation.py:61
 #, python-format
 msgid "This password must contain at least %(min_length)d lower case letter."
 msgid_plural ""
 "This password must contain at least %(min_length)d lower case letters."
-msgstr[0] "La tua password deve contenere almeno %(min_length)d lettera minuscola"
-msgstr[1] "La tua password deve contenere almeno %(min_length)d lettere minuscole"
+msgstr[0] ""
+"La tua password deve contenere almeno %(min_length)d lettera minuscola"
+msgstr[1] ""
+"La tua password deve contenere almeno %(min_length)d lettere minuscole"
 
 #: password_character_requirements/password_validation.py:71
 #, python-format
@@ -124,11 +128,15 @@ msgstr ""
 msgid "Date"
 msgstr "Data"
 
-#: password_history/password_validation.py:81
-msgid "You can not use a password that is already used in this application."
-msgstr "Non puoi riutilizzare una password usata precedentemente in questa applicazione."
+#: password_history/password_validation.py:82
+msgid ""
+"You can not use a password that was already used in this application in the "
+"past."
+msgstr ""
+"Non puoi riutilizzare una password usata precedentemente in questa "
+"applicazione."
 
-#: password_history/password_validation.py:122
+#: password_history/password_validation.py:117
 #, python-format
 msgid ""
 "Your new password can not be identical to any of the %(old_pass)d previously "
@@ -136,11 +144,14 @@ msgid ""
 msgid_plural ""
 "Your new password can not be identical to any of the %(old_pass)d previously "
 "entered passwords."
-msgstr[0] ""
-"La tua nuova password non può essere uguale alla password attuale."
-msgstr[1] "La tua nuova password non può essere uguale a nessuna delle ultime %(old_pass)d password usate."
+msgstr[0] "La tua nuova password non può essere uguale alla password attuale."
+msgstr[1] ""
+"La tua nuova password non può essere uguale a nessuna delle ultime "
+"%(old_pass)d password usate."
 
-#: password_history/password_validation.py:128
+#: password_history/password_validation.py:123
 msgid ""
 "Your new password can not be identical to any of the previously entered."
-msgstr "La tua nuova password non può essere identica a nessuna delle password usate in precedenza."
+msgstr ""
+"La tua nuova password non può essere identica a nessuna delle password usate "
+"in precedenza."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 10:08+0100\n"
+"POT-Creation-Date: 2023-12-10 18:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yamil Jaskolowski <yamilj@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,8 @@ msgid "This password must contain at least %(min_length)d special character."
 msgid_plural ""
 "This password must contain at least %(min_length)d special characters."
 msgstr[0] "La contraseña debe tener al menos %(min_length)d caracter especial."
-msgstr[1] "La contraseña debe tener al menos %(min_length)d caracteres especiales."
+msgstr[1] ""
+"La contraseña debe tener al menos %(min_length)d caracteres especiales."
 
 #: password_character_requirements/password_validation.py:86
 #, python-format
@@ -90,8 +91,10 @@ msgid ""
 "%(min_length_special)s special character, such as %(special_characters)s"
 msgid_plural ""
 "%(min_length_special)s special characters, such as %(special_characters)s"
-msgstr[0] "%(min_length_special)s caracter especial, como %(special_characters)s"
-msgstr[1] "%(min_length_special)s caracteres especiales, como %(special_characters)s"
+msgstr[0] ""
+"%(min_length_special)s caracter especial, como %(special_characters)s"
+msgstr[1] ""
+"%(min_length_special)s caracteres especiales, como %(special_characters)s"
 
 #: password_character_requirements/password_validation.py:123
 msgid "This password must contain at least"
@@ -125,11 +128,13 @@ msgstr "Hash de contraseña"
 msgid "Date"
 msgstr "Fecha"
 
-#: password_history/password_validation.py:81
-msgid "You can not use a password that is already used in this application."
+#: password_history/password_validation.py:82
+msgid ""
+"You can not use a password that was already used in this application in the "
+"past."
 msgstr "No puedes usar una contraseña que fue utilizada en esta aplicación."
 
-#: password_history/password_validation.py:122
+#: password_history/password_validation.py:117
 #, fuzzy, python-format
 #| msgid ""
 #| "Your new password can not be identical to any of the previously entered."
@@ -145,7 +150,8 @@ msgstr[1] ""
 "Su nueva contraseña no puede ser idéntica a ninguna de las %(old_pass)d "
 "contraseñas ingresadas anteriormente."
 
-#: password_history/password_validation.py:128
+#: password_history/password_validation.py:123
 msgid ""
 "Your new password can not be identical to any of the previously entered."
-msgstr "La nueva contraseña no puede ser identica a alguna utilizada anteriormente."
+msgstr ""
+"La nueva contraseña no puede ser identica a alguna utilizada anteriormente."

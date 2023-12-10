@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 06:57+0000\n"
+"POT-Creation-Date: 2023-12-10 18:48+0100\n"
 "PO-Revision-Date: 2023-06-15 14:00+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,64 +18,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: django_password_validators/password_character_requirements/password_validation.py:34
+#: password_character_requirements/password_validation.py:31
 #, python-format
 msgid "This password must contain at least %(min_length)d digit."
 msgid_plural "This password must contain at least %(min_length)d digits."
 msgstr[0] "你的密码必须包含至少 %(min_length)d 个数字。"
 
-#: django_password_validators/password_character_requirements/password_validation.py:46
+#: password_character_requirements/password_validation.py:41
 #, python-format
 msgid "This password must contain at least %(min_length)d letter."
 msgid_plural "This password must contain at least %(min_length)d letters."
 msgstr[0] "你的密码必须包含至少 %(min_length)d 个字母。"
 
-#: django_password_validators/password_character_requirements/password_validation.py:58
+#: password_character_requirements/password_validation.py:51
 #, python-format
 msgid "This password must contain at least %(min_length)d upper case letter."
 msgid_plural ""
 "This password must contain at least %(min_length)d upper case letters."
 msgstr[0] "你的密码必须包含至少 %(min_length)d 个大写字母。"
 
-#: django_password_validators/password_character_requirements/password_validation.py:70
+#: password_character_requirements/password_validation.py:61
 #, python-format
 msgid "This password must contain at least %(min_length)d lower case letter."
 msgid_plural ""
 "This password must contain at least %(min_length)d lower case letters."
 msgstr[0] "你的密码必须包含至少 %(min_length)d 个小写字母。"
 
-#: django_password_validators/password_character_requirements/password_validation.py:85
+#: password_character_requirements/password_validation.py:71
 #, python-format
 msgid "This password must contain at least %(min_length)d special character."
 msgid_plural ""
 "This password must contain at least %(min_length)d special characters."
 msgstr[0] "你的密码必须包含至少 %(min_length)d 个特殊符号。"
 
-#: django_password_validators/password_character_requirements/password_validation.py:101
+#: password_character_requirements/password_validation.py:86
 #, python-format
 msgid "%(min_length)s letter"
 msgid_plural "%(min_length)s letters"
 msgstr[0] "%(min_length)s 个字母"
 
-#: django_password_validators/password_character_requirements/password_validation.py:110
+#: password_character_requirements/password_validation.py:94
 #, python-format
 msgid "%(min_length)s digit"
 msgid_plural "%(min_length)s digits"
 msgstr[0] "%(min_length)s 个数字"
 
-#: django_password_validators/password_character_requirements/password_validation.py:119
+#: password_character_requirements/password_validation.py:102
 #, python-format
 msgid "%(min_length)s lower case letter"
 msgid_plural "%(min_length)s lower case letters"
 msgstr[0] "%(min_length)s 个小写字母"
 
-#: django_password_validators/password_character_requirements/password_validation.py:128
+#: password_character_requirements/password_validation.py:110
 #, python-format
 msgid "%(min_length)s upper case letter"
 msgid_plural "%(min_length)s upper case letters"
 msgstr[0] "%(min_length)s 个大写字母"
 
-#: django_password_validators/password_character_requirements/password_validation.py:137
+#: password_character_requirements/password_validation.py:118
 #, python-format
 msgid ""
 "%(min_length_special)s special character, such as %(special_characters)s"
@@ -83,43 +83,45 @@ msgid_plural ""
 "%(min_length_special)s special characters, such as %(special_characters)s"
 msgstr[0] "%(min_length_special)s 个特殊符号，例如：%(special_characters)s"
 
-#: django_password_validators/password_character_requirements/password_validation.py:147
+#: password_character_requirements/password_validation.py:123
 msgid "This password must contain at least"
 msgstr "你的密码必须包含至少"
 
-#: django_password_validators/password_history/models.py:20
+#: password_history/models.py:20
 msgid "When created salt"
 msgstr "创建 salt 的时间"
 
-#: django_password_validators/password_history/models.py:25
+#: password_history/models.py:25
 msgid "Salt for the user"
 msgstr "用户的 salt"
 
-#: django_password_validators/password_history/models.py:30
+#: password_history/models.py:30
 msgid "The number of iterations for hasher"
 msgstr "密码哈希的迭代次数"
 
-#: django_password_validators/password_history/models.py:38
+#: password_history/models.py:38
 msgid "Configuration"
 msgstr "配置"
 
-#: django_password_validators/password_history/models.py:39
+#: password_history/models.py:39
 msgid "Configurations"
 msgstr "配置"
 
-#: django_password_validators/password_history/models.py:78
+#: password_history/models.py:78
 msgid "Password hash"
 msgstr "密码哈希"
 
-#: django_password_validators/password_history/models.py:83
+#: password_history/models.py:83
 msgid "Date"
 msgstr "日期"
 
-#: django_password_validators/password_history/password_validation.py:81
-msgid "You can not use a password that is already used in this application."
+#: password_history/password_validation.py:82
+msgid ""
+"You can not use a password that was already used in this application in the "
+"past."
 msgstr "你不能重复使用这个密码。"
 
-#: django_password_validators/password_history/password_validation.py:122
+#: password_history/password_validation.py:117
 #, python-format
 msgid ""
 "Your new password can not be identical to any of the %(old_pass)d previously "
@@ -129,7 +131,7 @@ msgid_plural ""
 "entered passwords."
 msgstr[0] "你的密码不能与之前输入的 %(old_pass)d 个密码相同。"
 
-#: django_password_validators/password_history/password_validation.py:128
+#: password_history/password_validation.py:123
 msgid ""
 "Your new password can not be identical to any of the previously entered."
 msgstr "你的密码应该和以前使用过的密码不同。"

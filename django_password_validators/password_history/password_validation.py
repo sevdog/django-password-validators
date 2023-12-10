@@ -79,7 +79,7 @@ class UniquePasswordsValidator(object):
                     password=password_hash
                 )
                 raise ValidationError(
-                    _("You can not use a password that is already used in this application."),
+                    _("You can not use a password that was already used in this application in the past."),
                     code='password_used'
                 )
             except PasswordHistory.DoesNotExist:

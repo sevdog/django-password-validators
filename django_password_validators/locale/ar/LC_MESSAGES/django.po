@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 10:08+0100\n"
+"POT-Creation-Date: 2023-12-10 18:48+0100\n"
 "PO-Revision-Date: 2021-04-07 09:11+0000\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -209,11 +209,13 @@ msgstr "شفرة كلمة المرور"
 msgid "Date"
 msgstr "التاريخ"
 
-#: password_history/password_validation.py:81
-msgid "You can not use a password that is already used in this application."
+#: password_history/password_validation.py:82
+msgid ""
+"You can not use a password that was already used in this application in the "
+"past."
 msgstr "لا يمكنك استخدام كلمة مرور قد تم استخدامها بالفعل مسبقا"
 
-#: password_history/password_validation.py:122
+#: password_history/password_validation.py:117
 #, python-format
 msgid ""
 "Your new password can not be identical to any of the %(old_pass)d previously "
@@ -234,7 +236,7 @@ msgstr[4] ""
 msgstr[5] ""
 "لا يمكن أن تكون كلمة المرور الجديدة مطابقة لأية %(old_pass)d كلمة مرور سابقة."
 
-#: password_history/password_validation.py:128
+#: password_history/password_validation.py:123
 msgid ""
 "Your new password can not be identical to any of the previously entered."
 msgstr "لايمكن أن تكون كلمة المرور الجديدة مطابقة لأية كلمة مرور سابقة."
