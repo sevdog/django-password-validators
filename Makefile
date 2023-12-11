@@ -17,6 +17,9 @@ new_version_patch:
 	bumpversion patch
 
 release:
-	python setup.py sdist bdist_wheel upload
+    rm -r dist/
+    python -m build
+    twine check dist/*
+    twine upload dist/*
 	git push --tags
 
