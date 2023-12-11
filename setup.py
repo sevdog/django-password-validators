@@ -32,7 +32,7 @@ class Tox(TestCommand):
 
 __dir__ = realpath(dirname(__file__))
 
-TESTS_REQUIRE = ['tox >= 4.11']
+TESTS_REQUIRE = ['tox >= 4.11', 'bump-my-version >= 0.12']
 
 DESCRIPTION = open(
     os.path.join(os.path.dirname(__file__), 'README.rst')).read()
@@ -48,9 +48,12 @@ setup(
         'Framework :: Django',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Programming Language :: Python',
         'Operating System :: OS Independent',
         'Topic :: Security',
